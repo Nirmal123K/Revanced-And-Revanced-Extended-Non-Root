@@ -7,7 +7,7 @@ wget -q -O ./htmlq.tar.gz https://github.com/mgdm/htmlq/releases/latest/download
 tar -xf "./htmlq.tar.gz" -C "./"
 HTMLQ="./htmlq"
 #Setup APKEditor for install combine split apks
-wget -q -O ./APKEditor.jar https://github.com/REAndroid/APKEditor/releases/download/V1.3.9/APKEditor-1.3.9.jar
+wget -q -O ./APKEditor.jar https://github.com/REAndroid/APKEditor/releases/download/V1.4.1/APKEditor-1.4.1.jar
 APKEditor="./APKEditor.jar"
 
 #################################################
@@ -142,16 +142,20 @@ req() {
 
 dl_apk() {
 	local url=$1 regexp=$2 output=$3
-	url="https://www.apkmirror.com$(req "$url" - | tr '\n' ' ' | sed -n "s/href=\"/@/g; s;.*${regexp}.*;\1;p")"
+	if [[ -z "$4" ]] || [[ $4 == "Bundle" ]]; then
+		url="https://www.apkmirror.com$(req "$url" - | tr '\n' ' ' | sed -n "s/.*<a[^>]*href=\"\([^\"]*\)\".*${regexp}.*/\1/p")"
+	else
+		url="https://www.apkmirror.com$(req "$url" - | tr '\n' ' ' | sed -n "s/href=\"/@/g; s;.*${regexp}.*;\1;p")"
+	fi
 	url=$(req "$url" - | $HTMLQ --base https://www.apkmirror.com --attribute href ".downloadButton")
    	url=$(req "$url" - | $HTMLQ --base https://www.apkmirror.com --attribute href "span > a[rel = nofollow]")
 	req "$url" "$output"
 }
 get_apk() {
 	if [[ -z $5 ]]; then
-		url_regexp='APK</span>[^@]*@\([^#]*\)'
+		url_regexp='APK<\/span>'
 	elif [[ $5 == "Bundle" ]]; then
-		url_regexp='BUNDLE</span>[^@]*@\([^#]*\)'
+		url_regexp='BUNDLE<\/span>'
 	else
 		case $5 in
 			arm64-v8a) url_regexp='arm64-v8a'"[^@]*$7"''"[^@]*$6"'</div>[^@]*@\([^"]*\)' ;;
@@ -185,7 +189,8 @@ get_apk() {
 		fi
 		local dl_url=$(dl_apk "https://www.apkmirror.com/apk/$4-${version//./-}-release/" \
 							  "$url_regexp" \
-							  "$base_apk")
+							  "$base_apk" \
+							  "$5")
 		if [[ -f "./download/$base_apk" ]]; then
 			green_log "[+] Successfully downloaded $2"
 			break
