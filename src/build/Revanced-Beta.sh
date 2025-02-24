@@ -58,8 +58,7 @@ revanced_dl(){
 	patch "gg-photos-armeabi-v7a-beta" "revanced"
 }
 4() {
-	dl_gh "revanced-patches" "revanced" "v5.7.2" #Force version this because crash on startup lastest rv patches
-	dl_gh "revanced-cli" "revanced" "latest"
+	revanced_dl
 	# Patch Tiktok:
 	get_patches_key "tiktok"
 	#get_apk "com.zhiliaoapp.musically" "tiktok-beta" "tik-tok-including-musical-ly" "tiktok-pte-ltd/tik-tok-including-musical-ly/tik-tok-including-musical-ly" "Bundle_extract"
@@ -121,10 +120,10 @@ revanced_dl(){
 7() {
 	revanced_dl
 	# Patch Lightroom:
-	get_patches_key "lightroom"
- 	version="9.2.0"
-	get_apk "com.adobe.lrmobile" "lightroom-beta" "lightroom" "adobe/lightroom/lightroom"
-	patch "lightroom-beta" "revanced"
+	#get_patches_key "lightroom"
+ 	#version="9.2.0"
+	#get_apk "com.adobe.lrmobile" "lightroom-beta" "lightroom" "adobe/lightroom/lightroom"
+	#patch "lightroom-beta" "revanced"
 	# Patch RAR:
 	get_patches_key "rar"
 	get_apk "com.rarlab.rar" "rar-beta" "rar" "rarlab-published-by-win-rar-gmbh/rar/rar" "arm64-v8a"
