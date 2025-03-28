@@ -118,6 +118,8 @@ Old patches, because latest patch not support split apks
 
 ### [Revanced Extended For Android 6 & 7:](https://github.com/kitadai31/revanced-patches-android6-7/tree/revanced-extended)
 
+**If you have any problems opening apps, follow the instructions [HERE](../main/docs/Frequently%20Asked%20Questions.md#q-youtube-android-67-cant-load-anyvideo)**
+
 [All Architectures](../../releases/download/all/youtube-revanced-extended-android-6-7.apk)
 
 [Arm64-v8a](../../releases/download/all/youtube-arm64-v8a-revanced-extended-android-6-7.apk)
@@ -169,6 +171,8 @@ Old patches, because latest patch not support split apks
 ---
 
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://play.google.com/store/apps/details?id=com.facebook.katana&hl)
+
+**You have to remove the Messenger app before you install the Facebook ReVanced**
 
 ### [Revanced:](https://github.com/revanced/revanced-patches)
 
@@ -313,12 +317,22 @@ Web version:
 
 ---
 
+### [Google News:](play.google.com/store/apps/details?id=com.google.android.apps.magazines)
+
+### [Revanced:](https://github.com/revanced/revanced-patches)
+
+| Stable version                                                             | Beta version                                                                    |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [Arm64-v8a](../../releases/download/all/googlenews-arm64-v8a-revanced.apk) | [Arm64-v8a](../../releases/download/all/googlenews-beta-arm64-v8a-revanced.apk) |
+
+---
+
 ### [RAR:](https://play.google.com/store/apps/details?id=com.rarlab.rar)
 
 ### [Revanced:](https://github.com/revanced/revanced-patches)
 
 | Stable version                                            | Beta version                                                   |
-| --------------------------------------------------------- | -------------------------------------------------------------- | 
+| --------------------------------------------------------- | -------------------------------------------------------------- |
 | [Arm64-v8a](../../releases/download/all/rar-revanced.apk) | [Arm64-v8a](../../releases/download/all/rar-beta-revanced.apk) |
 
 ---
