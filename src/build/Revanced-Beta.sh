@@ -56,6 +56,14 @@ revanced_dl(){
 	get_patches_key "gg-photos"
 	get_apk "com.google.android.apps.photos" "gg-photos-armeabi-v7a-beta" "photos" "google-inc/photos/google-photos" "armeabi-v7a" "nodpi"
 	patch "gg-photos-armeabi-v7a-beta" "revanced"
+	# x86
+	get_patches_key "gg-photos"
+	get_apk "com.google.android.apps.photos" "gg-photos-x86-beta" "photos" "google-inc/photos/google-photos" "x86" "nodpi"
+	patch "gg-photos-x86-beta" "revanced"
+	# x86_64
+	get_patches_key "gg-photos"
+	get_apk "com.google.android.apps.photos" "gg-photos-x86_64-beta" "photos" "google-inc/photos/google-photos" "x86_64" "nodpi"
+	patch "gg-photos-x86_64-beta" "revanced"
 }
 4() {
 	revanced_dl
@@ -68,7 +76,6 @@ revanced_dl(){
 	# Patch Instagram:
 	# Arm64-v8a
 	get_patches_key "instagram"
-	version="370.1.0.43.96" #https://github.com/ReVanced/revanced-patches/issues/4584
 	get_apk "com.instagram.android" "instagram-arm64-v8a-beta" "instagram-instagram" "instagram/instagram-instagram/instagram" "arm64-v8a" "nodpi"
 	patch "instagram-arm64-v8a-beta" "revanced"
 }
@@ -182,6 +189,15 @@ revanced_dl(){
 	get_apkpure "com.strava" "strava-beta-arm64-v8a" "strava-run-hike-2025-health/com.strava" "Bundle"
 	patch "strava-beta-arm64-v8a" "revanced"
 }
+12() {
+	revanced_dl
+	# Patch Spotjfy Arm64-v8a
+	get_patches_key "Spotjfy-revanced"
+	j="i"
+	version="9.0.44.478" #https://github.com/ReVanced/revanced-patches/issues/4958#issuecomment-2883387940
+	get_apkpure "com.spot"$j"fy.music" "spotjfy-beta-arm64-v8a" "spot"$j"fy-music-and-podcasts-for-android/com.spot"$j"fy.music"
+	patch "spotjfy-beta-arm64-v8a" "revanced"
+}
 case "$1" in
     1)
         1
@@ -215,5 +231,8 @@ case "$1" in
         ;;
     11)
         11
+        ;;
+    12)
+        12
         ;;
 esac
